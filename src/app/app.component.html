@@ -1,0 +1,19 @@
+<div class="contenedor">
+  <h2>Test Angular</h2>
+<form [formGroup]="taskForm">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input formControlName="taskname" name="taskName" matInput required>
+@if (taskForm.get('taskname')?.hasError('required')) {
+  <mat-error>the name of the task is required</mat-error>
+}
+  </mat-form-field>
+</form>
+ 
+<button mat-raised-button color="primary" [disabled]="!taskForm.valid" (click)="Add()">Add Task</button>
+
+<hr>
+
+  <h2>Task List</h2>
+  <task-list #selectorTaskList></task-list>
+</div>  
